@@ -16,11 +16,9 @@ class SimonButton extends JToggleButton {
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		if (this.isSelected()) {
-			g.setColor(color);
-		} else {
-			g.setColor(Color.lightGray);
-		}
+		
+			g.setColor(color);;
+		
 		g.fillRect(0, 0, this.getWidth(), this.getHeight());
 	}
 

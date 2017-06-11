@@ -9,22 +9,22 @@ import javax.swing.JPanel;
 public class MemoryGame implements ActionListener {
 	final static int height = 500;
 	final static int width = 500;
-	JFrame frame;
+
 
 	public static void main(String[] args) {
 		MemoryGame mg = new MemoryGame();
 
 	}
-
+	JFrame frame = new JFrame();
+	JPanel panel = new JPanel();
+	SimonButton button = new SimonButton(Color.RED);
+	SimonButton Autton = new SimonButton(Color.ORANGE);
+	SimonButton Cutton = new SimonButton(Color.BLUE);
+	SimonButton Dutton = new SimonButton(Color.GREEN);
 	MemoryGame() {
 
-		JFrame frame = new JFrame();
-		JPanel panel = new JPanel();
-		SimonButton button = new SimonButton(Color.RED);
-
-		SimonButton Autton = new SimonButton(Color.ORANGE);
-		SimonButton Cutton = new SimonButton(Color.BLUE);
-		SimonButton Dutton = new SimonButton(Color.GREEN);
+		
+		
 		frame.add(panel);
 		panel.add(button);
 		panel.add(Autton);
@@ -63,6 +63,14 @@ public class MemoryGame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		((JButton) e.getSource()).paintComponents();
+		if(e.getSource().equals(button)){
+			
+		}else if(e.getSource().equals(Autton)){
+			
+			
+			}else if(e.getSource().equals(Cutton)){
+				
+			}else if(e.getSource().equals(Dutton)){}
+		
 	}
 }
