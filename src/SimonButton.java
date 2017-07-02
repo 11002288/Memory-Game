@@ -6,7 +6,7 @@ import javax.swing.JToggleButton;
 
 class SimonButton extends JToggleButton {
 
-	private final Color color;
+	private Color color;
 	Dimension size = new Dimension(100, 100);
 
 	public SimonButton(Color color) {
@@ -26,4 +26,9 @@ class SimonButton extends JToggleButton {
 	public Dimension getPreferredSize() {
 		return size;
 	}
+	
+	void setColor(Color color){
+		this.color=color;
+	}
+	
 }

@@ -1,16 +1,19 @@
 import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 public class MemoryGame implements ActionListener {
-	final static int height = 500;
-	final static int width = 500;
-
-
+	final static int height = 275;
+	final static int width = 250;
+Timer time = new Timer(1000/60, this);
+int counter = 0;
 	public static void main(String[] args) {
 		MemoryGame mg = new MemoryGame();
 
@@ -21,6 +24,8 @@ public class MemoryGame implements ActionListener {
 	SimonButton Autton = new SimonButton(Color.ORANGE);
 	SimonButton Cutton = new SimonButton(Color.BLUE);
 	SimonButton Dutton = new SimonButton(Color.GREEN);
+	JButton Eutton = new JButton();
+	
 	MemoryGame() {
 
 		
@@ -30,6 +35,7 @@ public class MemoryGame implements ActionListener {
 		panel.add(Autton);
 		panel.add(Cutton);
 		panel.add(Dutton);
+		panel.add(Eutton);
 
 		frame.setSize(width, height);
 		frame.setVisible(true);
@@ -53,11 +59,13 @@ public class MemoryGame implements ActionListener {
 		// Cutton.setOpaque(true);
 		// Dutton.setBackground(Color.RED);
 		// Dutton.setOpaque(true);
+		Eutton.setText("Memorize up to # to win");
+		Eutton.setLocation(475, 475);
 		button.addActionListener(this);
 		Dutton.addActionListener(this);
 		Cutton.addActionListener(this);
 		Autton.addActionListener(this);
-
+time.start();
 	}
 
 	@Override
@@ -70,7 +78,25 @@ public class MemoryGame implements ActionListener {
 			
 			}else if(e.getSource().equals(Cutton)){
 				
-			}else if(e.getSource().equals(Dutton)){}
+			}else if(e.getSource().equals(Dutton)){
+				counter++;
+				if(counter%100==0){
+					Dutton.setColor(Color.BLUE);
+				}
+				else if(counter%50==0){
+					Dutton.setColor(Color.green);
+					
+				}
+			}
+		
+		
+	counter++;
+	if(counter%100==0){
+		Dutton.setColor(Color.BLUE);
+	}
+	else if(counter%50==0){
+		Dutton.setColor(Color.green);
 		
 	}
+}
 }
