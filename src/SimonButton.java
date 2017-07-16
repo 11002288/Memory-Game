@@ -16,9 +16,10 @@ class SimonButton extends JToggleButton {
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		
-			g.setColor(color);;
-		
+
+		g.setColor(color);
+		;
+
 		g.fillRect(0, 0, this.getWidth(), this.getHeight());
 	}
 
@@ -26,9 +27,9 @@ class SimonButton extends JToggleButton {
 	public Dimension getPreferredSize() {
 		return size;
 	}
-	
-	void setColor(Color color){
-		this.color=color;
+
+	void setColor(Color color) {
+		this.color = color;
 	}
-	
+
 }

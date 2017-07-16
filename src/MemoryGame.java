@@ -1,8 +1,6 @@
 import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -12,12 +10,14 @@ import javax.swing.Timer;
 public class MemoryGame implements ActionListener {
 	final static int height = 275;
 	final static int width = 250;
-Timer time = new Timer(1000/60, this);
-int counter = 0;
+	Timer time = new Timer(1000 / 60, this);
+	int counter = 0;
+
 	public static void main(String[] args) {
 		MemoryGame mg = new MemoryGame();
 
 	}
+
 	JFrame frame = new JFrame();
 	JPanel panel = new JPanel();
 	SimonButton button = new SimonButton(Color.RED);
@@ -25,11 +25,9 @@ int counter = 0;
 	SimonButton Cutton = new SimonButton(Color.BLUE);
 	SimonButton Dutton = new SimonButton(Color.GREEN);
 	JButton Eutton = new JButton();
-	
+
 	MemoryGame() {
 
-		
-		
 		frame.add(panel);
 		panel.add(button);
 		panel.add(Autton);
@@ -65,38 +63,37 @@ int counter = 0;
 		Dutton.addActionListener(this);
 		Cutton.addActionListener(this);
 		Autton.addActionListener(this);
-time.start();
+		time.start();
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if(e.getSource().equals(button)){
-			
-		}else if(e.getSource().equals(Autton)){
-			
-			
-			}else if(e.getSource().equals(Cutton)){
-				
-			}else if(e.getSource().equals(Dutton)){
-				counter++;
-				if(counter%100==0){
-					Dutton.setColor(Color.BLUE);
-				}
-				else if(counter%50==0){
-					Dutton.setColor(Color.green);
-					
-				}
-			}
-		
-		
-	counter++;
-	if(counter%100==0){
-		Dutton.setColor(Color.BLUE);
+		if (e.getSource().equals(button)) {
+
+		} else if (e.getSource().equals(Autton)) {
+
+		} else if (e.getSource().equals(Cutton)) {
+
+		} else if (e.getSource().equals(Dutton)) {
+
+		}
+
+		// if (counter % 10 == 0) {
+		// Dutton.setColor(Color.BLACK);
+		// } else if (counter % 50 == 0) {
+		// Dutton.setColor(Color.GREEN);
+		//
+		// }
+		counter++;
+		if (counter % 100 == 0) {
+			Cutton.setColor(Color.CYAN);
+			Cutton.repaint();
+		} else if (counter % 50 == 0) {
+			Cutton.setColor(Color.BLUE);
+			Cutton.repaint();
+
+		}
+
 	}
-	else if(counter%50==0){
-		Dutton.setColor(Color.green);
-		
-	}
-}
 }
