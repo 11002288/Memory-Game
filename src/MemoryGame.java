@@ -80,11 +80,11 @@ public class MemoryGame implements ActionListener {
 		if (e.getSource().equals(button)) {
 			button.toggle();
 		} else if (e.getSource().equals(Autton)) {
-
+			Autton.toggle();
 		} else if (e.getSource().equals(Cutton)) {
-
+			Cutton.toggle();
 		} else if (e.getSource().equals(Dutton)) {
-
+			Dutton.toggle();
 		}
 
 		// if (counter % 10 == 0) {
