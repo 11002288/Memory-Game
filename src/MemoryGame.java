@@ -12,6 +12,9 @@ public class MemoryGame implements ActionListener {
 	final static int width = 250;
 	Timer time = new Timer(1000 / 60, this);
 	int counter = 0;
+	Pattern pattern = new Pattern();
+	int[] currentPattern;
+	int postion;
 
 	public static void main(String[] args) {
 		MemoryGame mg = new MemoryGame();
@@ -20,6 +23,7 @@ public class MemoryGame implements ActionListener {
 
 	JFrame frame = new JFrame();
 	JPanel panel = new JPanel();
+	SimonButton[] buttons = new SimonButton[4];
 	SimonButton button = new SimonButton(Color.RED);
 	SimonButton Autton = new SimonButton(Color.ORANGE);
 	SimonButton Cutton = new SimonButton(Color.BLUE);
@@ -27,7 +31,11 @@ public class MemoryGame implements ActionListener {
 	JButton Eutton = new JButton();
 
 	MemoryGame() {
-
+		buttons[0] = button;
+		buttons[1] = Autton;
+		buttons[2] = Cutton;
+		buttons[3] = Dutton;
+		currentPattern = pattern.getP1();
 		frame.add(panel);
 		panel.add(button);
 		panel.add(Autton);
@@ -70,7 +78,7 @@ public class MemoryGame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if (e.getSource().equals(button)) {
-
+			button.toggle();
 		} else if (e.getSource().equals(Autton)) {
 
 		} else if (e.getSource().equals(Cutton)) {
@@ -86,14 +94,17 @@ public class MemoryGame implements ActionListener {
 		//
 		// }
 		counter++;
-		if (counter % 100 == 0) {
-			Cutton.setColor(Color.CYAN);
-			Cutton.repaint();
-		} else if (counter % 50 == 0) {
-			Cutton.setColor(Color.BLUE);
-			Cutton.repaint();
+		if (postion < currentPattern.length) {
+			if (counter % 100 == 0) {
+				buttons[currentPattern[postion]].toggle();
+				buttons[currentPattern[postion]].repaint();
+				postion++;
+			} else if (counter % 50 == 0) {
+				buttons[currentPattern[postion]].toggle();
+				buttons[currentPattern[postion]].repaint();
+
+			}
 
 		}
-
 	}
 }

@@ -8,6 +8,7 @@ class SimonButton extends JToggleButton {
 
 	private Color color;
 	Dimension size = new Dimension(100, 100);
+	private boolean lightUp;
 
 	public SimonButton(Color color) {
 		this.color = color;
@@ -17,9 +18,12 @@ class SimonButton extends JToggleButton {
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 
-		g.setColor(color);
-		;
-
+		if (lightUp) {
+			g.setColor(color);
+		} else {
+			g.setColor(color.darker());
+			;
+		}
 		g.fillRect(0, 0, this.getWidth(), this.getHeight());
 	}
 
@@ -30,6 +34,10 @@ class SimonButton extends JToggleButton {
 
 	void setColor(Color color) {
 		this.color = color;
+	}
+
+	void toggle() {
+		lightUp = !lightUp;
 	}
 
 }
