@@ -141,4 +141,8 @@ boolean  turn = false;
 			postion = 0;
 		}
 	}
+	void animate(JButton b){
+		
+		
 	}
+}
