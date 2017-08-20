@@ -4,8 +4,10 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
+import javax.swing.plaf.synth.SynthSpinnerUI;
 
 public class MemoryGame implements ActionListener {
 	final static int height = 275;
@@ -29,7 +31,7 @@ public class MemoryGame implements ActionListener {
 	SimonButton Cutton = new SimonButton(Color.BLUE);
 	SimonButton Dutton = new SimonButton(Color.GREEN);
 	JButton Eutton = new JButton();
-
+boolean  turn = false;
 	MemoryGame() {
 		buttons[0] = button;
 		buttons[1] = Autton;
@@ -77,22 +79,51 @@ public class MemoryGame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if (e.getSource().equals(button)) {
-			button.toggle();
-		} else if (e.getSource().equals(Autton)) {
-			Autton.toggle();
-		} else if (e.getSource().equals(Cutton)) {
-			Cutton.toggle();
-		} else if (e.getSource().equals(Dutton)) {
-			Dutton.toggle();
-		}
-
+		
 		// if (counter % 10 == 0) {
 		// Dutton.setColor(Color.BLACK);
 		// } else if (counter % 50 == 0) {
 		// Dutton.setColor(Color.GREEN);
 		//
 		// }
+		
+		if(turn==true){
+		if (e.getSource()!=time) {
+			
+			
+		if (buttons[currentPattern[postion]] ==e.getSource()) {
+				System.out.println("Good Job");
+				postion++;
+				if (postion==currentPattern.length) {
+					JOptionPane.showConfirmDialog(null, "You Passed round 1");
+					currentPattern = pattern.getP2();
+					turn = false;
+					postion = 0;
+				}
+			}else{
+				JOptionPane.showConfirmDialog(null, "You Lost!");
+			}
+			
+	
+			if (e.getSource().equals(button)) {
+				button.toggle();
+				
+			} else if (e.getSource().equals(Autton)) {
+				Autton.toggle();
+			} else if (e.getSource().equals(Cutton)) {
+				Cutton.toggle();
+			} else if (e.getSource().equals(Dutton)) {
+				Dutton.toggle();
+			}
+}
+			
+		}else {
+			displayPattern();
+		
+		}	
+		
+	}
+	void displayPattern() {
 		counter++;
 		if (postion < currentPattern.length) {
 			if (counter % 100 == 0) {
@@ -104,7 +135,10 @@ public class MemoryGame implements ActionListener {
 				buttons[currentPattern[postion]].repaint();
 
 			}
-
+		}
+		if (currentPattern.length==postion) {
+			turn = true;
+			postion = 0;
 		}
 	}
-}
+	}
