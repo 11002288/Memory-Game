@@ -39,5 +39,9 @@ class SimonButton extends JToggleButton {
 	void toggle() {
 		lightUp = !lightUp;
 	}
+	void darken() {
+		lightUp = false;
+		
+	}
 
 }

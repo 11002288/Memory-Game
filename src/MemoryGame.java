@@ -1,6 +1,8 @@
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -27,9 +29,9 @@ public class MemoryGame implements ActionListener {
 	JPanel panel = new JPanel();
 	SimonButton[] buttons = new SimonButton[4];
 	SimonButton button = new SimonButton(Color.RED);
-	SimonButton Autton = new SimonButton(Color.ORANGE);
+	SimonButton Autton = new SimonButton(Color.GREEN);
 	SimonButton Cutton = new SimonButton(Color.BLUE);
-	SimonButton Dutton = new SimonButton(Color.GREEN);
+	SimonButton Dutton = new SimonButton(Color.ORANGE);
 	JButton Eutton = new JButton();
 boolean  turn = false;
 	MemoryGame() {
@@ -95,7 +97,7 @@ boolean  turn = false;
 				System.out.println("Good Job");
 				postion++;
 				if (postion==currentPattern.length) {
-					JOptionPane.showConfirmDialog(null, "You Passed round 1");
+					JOptionPane.showConfirmDialog(null, "You Passed this round");
 					currentPattern = pattern.getP2();
 					turn = false;
 					postion = 0;
@@ -141,8 +143,15 @@ boolean  turn = false;
 			postion = 0;
 		}
 	}
-	void animate(JButton b){
-		
-		
+	void getNextpattern() {
+		if(currentPattern==pattern.getP1()) {
+			currentPattern=pattern.getP2();
+		}
+		if(currentPattern==pattern.getP2()) {
+			currentPattern=pattern.getP3();
+		}
+		if(currentPattern==pattern.getP3()) {
+			currentPattern=pattern.getP3();}
 	}
+
 }
