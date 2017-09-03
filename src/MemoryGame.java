@@ -104,6 +104,7 @@ boolean  turn = false;
 				}
 			}else{
 				JOptionPane.showConfirmDialog(null, "You Lost!");
+				System.exit(0);
 			}
 			
 	
