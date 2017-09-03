@@ -98,7 +98,7 @@ boolean  turn = false;
 				postion++;
 				if (postion==currentPattern.length) {
 					JOptionPane.showConfirmDialog(null, "You Passed this round");
-					currentPattern = pattern.getP2();
+					getNextpattern();
 					turn = false;
 					postion = 0;
 				}
@@ -146,12 +146,14 @@ boolean  turn = false;
 	void getNextpattern() {
 		if(currentPattern==pattern.getP1()) {
 			currentPattern=pattern.getP2();
-		}
-		if(currentPattern==pattern.getP2()) {
+		}else if(currentPattern==pattern.getP2()) {
 			currentPattern=pattern.getP3();
-		}
-		if(currentPattern==pattern.getP3()) {
-			currentPattern=pattern.getP3();}
+		}else if(currentPattern==pattern.getP3()) {
+int restart = JOptionPane.showConfirmDialog(null, "Good Job You completed this game! Do you want to play again?");		
+if(restart==0){
+	currentPattern=pattern.getP1();
+}else{
+System.exit(0);
+}}
 	}
-
 }
